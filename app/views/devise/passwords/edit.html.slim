@@ -1,0 +1,18 @@
+.row
+  .col-4
+    h2 Change your password
+    hr
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+      = render 'devise/shared/error_messages', resource: resource
+      = f.hidden_field :reset_password_token
+      .field.mb-3
+        = f.label :password, 'New password', class: 'form-label'
+        - if @minimum_password_length
+          em
+            | (#{ @minimum_password_length} characters minimum)
+        = f.password_field :password, autocomplete: 'new-password', class: 'form-control'
+      .field.mb-3
+        = f.label :password_confirmation, 'Confirm new password', class: 'form-label'
+        = f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control'
+      hr
+      = render 'devise/shared/actions', f: f, submit_name: 'Change my password'
