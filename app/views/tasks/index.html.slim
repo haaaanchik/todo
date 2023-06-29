@@ -1,0 +1,15 @@
+h2.title_task
+  | Мои Задачи
+  = link_to 'Создать задачу', new_task_path, class: 'btn btn-outline-primary float-end'
+hr
+
+.list_task.mt-3
+  -  @tasks.each do |task|
+    .task_block
+      h3.none-underline
+        = link_to task.title, task_path(task)
+      p
+        = task.completed
+    hr
+
+

@@ -1,0 +1,9 @@
+.main_patternRequest
+
+  .form-group
+    = f.label :title, class: 'form-label mt-3'
+    = f.text_field :title, class: 'form-control'
+
+  .form-group
+    = f.submit 'Сохранить', class: 'btn btn-primary me-3'
+    = link_to 'Назад', :back, class: 'btn btn-outline-secondary'

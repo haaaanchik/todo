@@ -1,0 +1,20 @@
+.main_patternRequest {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  background-color: #f2f2f2;
+  padding-top: 30px;
+
+  .сheck_box_watch {
+    opacity: 1;
+    pointer-events: auto;
+    width: 1.5em;
+    left: 12.5em;
+    bottom: 3em;
+    height: 22px;
+  }
+
+  .completed {
+    bottom: 9.5em;
+  }
+}
