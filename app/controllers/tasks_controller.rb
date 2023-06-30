@@ -4,7 +4,8 @@ class TasksController < ApplicationController
 
 
   def index
-    @tasks = Task.all
+    @q = Task.ransack(params[:q])
+    @tasks = @q.result
   end
 
   def show; end
@@ -16,7 +17,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
-      flash[:success] = 'Пост успешно создан!'
+      flash[:success] = 'Задача успешно создана!'
       redirect_to task_path(@task)
     else
       flash_danger
@@ -28,7 +29,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      flash[:success] = 'Пост успешно обновлён!'
+      flash[:success] = 'Задача успешно обновлёна!'
       redirect_to task_path(@task)
     else
       flash_danger

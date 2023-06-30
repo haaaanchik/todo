@@ -1,6 +1,6 @@
-nav.navbar.navbar-expand-lg.navbar-light.bg-light
+.navbar.bg-dark
   .container
-    = link_to 'Новостной блог',root_path, class: 'navbar-brand'
+    = link_to 'Todo',root_path, class: 'navbar-brand text-white'
     button.navbar-toggler[aria-controls='navbarNavDropdown'
                           aria-expanded='false'
                           aria-label='Toggle navigation'
@@ -10,6 +10,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
       span.navbar-toggler-icon
     .d-flex
       - if user_signed_in?
+        = link_to 'Создать задачу', new_task_path, class: 'btn btn-outline-primary navbar-brand text-white'
         = link_to 'Выход', destroy_user_session_path, class: 'btn btn-secondary btn-sm', data: { turbo_method: :delete }
       - else
         = link_to 'Войти', user_session_path, class: 'btn btn-success btn-sm me-2'

@@ -1,15 +1,30 @@
-h2.title_task
-  | Мои Задачи
-  = link_to 'Создать задачу', new_task_path, class: 'btn btn-outline-primary float-end'
-hr
+.container
+  .row
+    .col-lg-5.col-md-6.col-sm-8.mx-auto
+      .card.my-5
+        h5.card-header.bg-light.text-black
+          |  Todo(5)
+        .card-body
+          .input-group.mb-3
+            = search_form_for @q do |f|
+              = f.search_field :title, type: "text", id: "search", class: "form-control", placeholder: "Enter to do here"
+              .input-group-append
+                = f.submit class: 'btn btn-primary btn-radius-none'
 
-.list_task.mt-3
-  -  @tasks.each do |task|
-    .task_block
-      h3.none-underline
-        = link_to task.title, task_path(task)
-      p
-        = task.completed
-    hr
-
-
+          - @tasks.each do |task|
+            .list-group.list-group-flush.mb-3
+              li.list-group-item.d-flex.align-items-center
+                input#flexCheckDefault.form-check-input[type="checkbox" value=""]
+                  / = task.check_box :completed
+                label.form-check-label.todo-text[for="flexCheckDefault"]
+                  .task_block
+                    h3.none-underline
+                      = link_to task.title, task_path(task)
+                span.button-group
+                  = link_to edit_task_path(id: task), class: 'btn btn-success me-2'
+                    span.btn.btn-small.btn-success
+                      | ?
+                  = link_to task_path(id: task), class: 'btn btn-danger',data: {turbo_method: :delete,
+                                                                                turbo_confirm: 'Вы точно хотите удалить задачу?'}
+                    span.btn.btn-small.btn-danger
+                      | &times

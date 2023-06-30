@@ -1,0 +1,32 @@
+.card {
+  border-radius: 0;
+}
+
+.list-group-item .todo-text {
+  margin: 0 10px;
+}
+
+.list-group-flush>.list-group-item {
+  border-top-width: 1px;
+  border-bottom-width: 0;
+  border-left-width: 1px;
+  border-right-width: 1px;
+}
+
+.button-group {
+  position: relative;
+  margin-left: auto;
+}
+
+.btn-success {
+  margin-right: 1px;
+}
+
+.list-group-item.done .todo-text {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.btn-radius-none {
+  border-radius: 0;
+}
