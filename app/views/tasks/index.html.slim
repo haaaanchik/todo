@@ -7,24 +7,18 @@
         .card-body
           .input-group.mb-3
             = search_form_for @q do |f|
-              = f.search_field :title, type: "text", id: "search", class: "form-control", placeholder: "Enter to do here"
-              .input-group-append
-                = f.submit class: 'btn btn-primary btn-radius-none'
-
+              = f.search_field :title_cont, id: "search", class: "form-control", placeholder: "Enter to do here"
           - @tasks.each do |task|
             .list-group.list-group-flush.mb-3
               li.list-group-item.d-flex.align-items-center
                 input#flexCheckDefault.form-check-input[type="checkbox" value=""]
-                  / = task.check_box :completed
                 label.form-check-label.todo-text[for="flexCheckDefault"]
                   .task_block
                     h3.none-underline
-                      = link_to task.title, task_path(task)
+                      = task.title
                 span.button-group
                   = link_to edit_task_path(id: task), class: 'btn btn-success me-2'
-                    span.btn.btn-small.btn-success
-                      | ?
+                    |
                   = link_to task_path(id: task), class: 'btn btn-danger',data: {turbo_method: :delete,
                                                                                 turbo_confirm: 'Вы точно хотите удалить задачу?'}
-                    span.btn.btn-small.btn-danger
-                      | &times
+                    |

@@ -30,3 +30,13 @@
 .btn-radius-none {
   border-radius: 0;
 }
+
+.btn-success::before {
+  content: "\270E";
+  color: #fff;
+}
+
+.btn-danger::before {
+  content: "\1F5D1";
+  color: #fff;
+}

@@ -10,8 +10,8 @@
       span.navbar-toggler-icon
     .d-flex
       - if user_signed_in?
-        = link_to 'Создать задачу', new_task_path, class: 'btn btn-outline-primary navbar-brand text-white'
-        = link_to 'Выход', destroy_user_session_path, class: 'btn btn-secondary btn-sm', data: { turbo_method: :delete }
+        = link_to 'Создать задачу', new_task_path, class: 'btn btn-success btn-sm me-2'
+        = link_to 'Выход', destroy_user_session_path, class: 'btn btn-success btn-sm me-2', data: { turbo_method: :delete }
       - else
         = link_to 'Войти', user_session_path, class: 'btn btn-success btn-sm me-2'
         = link_to 'Регистрация', new_user_registration_path, class: 'btn btn-success btn-sm'

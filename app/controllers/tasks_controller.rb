@@ -1,5 +1,4 @@
 class TasksController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
 
@@ -29,7 +28,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      flash[:success] = 'Задача успешно обновлёна!'
+      flash[:success] = 'Задача успешно обновлена!'
       redirect_to task_path(@task)
     else
       flash_danger
